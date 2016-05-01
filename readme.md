@@ -4,4 +4,4 @@ run
 npm install
 npm start
 
-then visit localhost:8888
+then visit localhost:8888 in your browser

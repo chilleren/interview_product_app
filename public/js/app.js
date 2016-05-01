@@ -4,7 +4,7 @@ var productApp = angular.module('productApp', [
   "controllers.productDetails",
   "controllers.categories",
   "directives",
-  "productServices"
+  "services"
 ]);
 
 productApp.config(['$routeProvider', function ($routeProvider) {

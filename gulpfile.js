@@ -2,12 +2,14 @@ var gulp = require("gulp");
 var sass = require("gulp-sass");
 var concat = require("gulp-concat");
 
+//compile sass into css
 gulp.task("sass", function () {
   return gulp.src("./public/stylesheets/style.scss")
     .pipe(sass())
     .pipe(gulp.dest("./public"))
 });
 
+//concatenate js files and angular dependencies
 gulp.task("js", function () {
   gulp.src([
       "./node_modules/angular/angular.js", 
@@ -19,6 +21,7 @@ gulp.task("js", function () {
     .pipe(gulp.dest("./public"));
 });
 
+//watcher for convenient development
 gulp.task("watch", function () {
   gulp.watch("./public/stylesheets/**/*", ["sass"]);
   gulp.watch("./public/js/**/*", ["js"]);

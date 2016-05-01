@@ -1,9 +1,8 @@
-var productServices = angular.module('productServices', ['ngResource']);
+var services = angular.module("services", ["ngResource"]);
+var apiUrl = "http://awsstaging.flashtalkingfeeds.com/temp/bas/test-api/get.php";
 
-
-productServices.factory('Product', ['$resource', function ($resource) {
-  return $resource('http://awsstaging.flashtalkingfeeds.com/temp/bas/test-api/get.php', {}, {
-    //query string ?category=jackets &product=blue-jacket
-    query: {method: 'GET', params: {}} 
+services.factory("Product", ["$resource", function ($resource) {
+  return $resource(apiUrl, {}, {
+    query: { method: "GET", params: {} } 
   });
 }]);

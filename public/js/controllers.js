@@ -1,5 +1,5 @@
-angular.module('controllers.categories', [])
-.controller('CategoryCtrl', ['$scope', 'Product', function ($scope, Product) {
+angular.module("controllers.categories", [])
+.controller("CategoryCtrl", ["$scope", "Product", function ($scope, Product) {
   $scope.categories = [];
 
   Product.query({}, function (categories) {
@@ -7,8 +7,8 @@ angular.module('controllers.categories', [])
   });
 }]);
 
-angular.module('controllers.productDetails', [])
-.controller('ProductDetailsCtrl', ['$scope', "$routeParams", 'Product', function ($scope, $routeParams, Product) {
+angular.module("controllers.productDetails", [])
+.controller("ProductDetailsCtrl", ["$scope", "$routeParams", "Product", function ($scope, $routeParams, Product) {
   $scope.product = {};
 
   Product.query({category: $routeParams.categoryId, product: $routeParams.productId}, function (product) {
@@ -16,8 +16,8 @@ angular.module('controllers.productDetails', [])
   });
 }]);
 
-angular.module('controllers.productList', [])
-.controller('ProductListCtrl', ['$scope', "$routeParams", 'Product', function ($scope, $routeParams, Product) {
+angular.module("controllers.productList", [])
+.controller("ProductListCtrl", ["$scope", "$routeParams", "Product", function ($scope, $routeParams, Product) {
   $scope.products = [];
   $scope.categoryId = $routeParams.categoryId;
 
