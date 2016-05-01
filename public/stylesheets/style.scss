@@ -1,13 +1,14 @@
-$font-color: #333;
+$dark-grey: #333;
+$accent-color: #209DD9;
 
 body {
   font-family: Arial;
   margin: 0;
-  color: $font-color;
+  color: $dark-grey;
 }
 
 #header {
-  background-color: #333;
+  background-color: $dark-grey;
   color: white;
   padding-top: 10px;
   padding-left: 10px;
@@ -34,10 +35,9 @@ body {
       display: inline
     }
     a {
-      margin-right: 20px;
-      padding-bottom: 4px;
+      padding: 15px 10px 4px 10px;
       &:hover {
-        border-bottom: 4px solid white;
+        border-bottom: 4px solid $accent-color;
       }
     }
   }
@@ -52,17 +52,24 @@ body {
   .product-title {
     a {
       font-size: 1.5em;
-      color: $font-color;
+      color: $dark-grey;
       text-decoration: none;
       &:hover {
         text-decoration: underline;
       }
     }
-
   }
 }
 
+.product-details {
+  .product-image {
+    max-width: 300px;
+    margin: 10px;
+  }
+  padding: 20px;
+}
+
 .thumbnail {
-  width: 100px;
-  height: 100px;
+  max-width: 100px;
+  margin: 10px;
 }

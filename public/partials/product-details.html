@@ -1,9 +1,11 @@
-<div ng-controller="ProductDetailsCtrl" ng-model="productDetails">
+<div ng-controller="ProductDetailsCtrl" ng-model="productDetails" class="product-details">
     <div>
-        <img ng-src={{product.image}} >
+      <h1>{{product.title}}</h1>
     </div>
     <div>
-      {{product.title}}
+      <h2>${{product.price}}</h2>
     </div>
-    <div>Price: {{product.price}}</div>
+    <div>
+        <img ng-src={{product.image}} class="product-image">
+    </div>
 </div>
