@@ -1,7 +1,6 @@
-requires node.js
+First install dependencies with `npm install`
+Then build and run with the command `npm start`
 
-run 
-npm install
-npm start
+Then visit `localhost:8888` in your browser!
 
-then visit localhost:8888 in your browser
+Requires Node.js
