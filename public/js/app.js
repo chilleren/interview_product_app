@@ -1,5 +1,5 @@
-var productApp = angular.module('productApp', [
-  'ngRoute',
+var productApp = angular.module("productApp", [
+  "ngRoute",
   "controllers.productList",
   "controllers.productDetails",
   "controllers.categories",
@@ -7,18 +7,18 @@ var productApp = angular.module('productApp', [
   "services"
 ]);
 
-productApp.config(['$routeProvider', function ($routeProvider) {
+productApp.config(["$routeProvider", function ($routeProvider) {
   $routeProvider
-    .when('/', {
-      templateUrl: 'partials/product-list.html',
-      controller: 'ProductListCtrl'
+    .when("/", {
+      templateUrl: "partials/product-list.html",
+      controller: "ProductListCtrl"
     })
-    .when('/categories/:categoryId', {
-      templateUrl: 'partials/product-list.html',
-      controller: 'ProductListCtrl'
+    .when("/categories/:categoryId", {
+      templateUrl: "partials/product-list.html",
+      controller: "ProductListCtrl"
     })
-    .when('/categories/:categoryId/products/:productId', {
-      templateUrl: 'partials/product-details.html',
-      controller: 'ProductDetailsCtrl'
+    .when("/categories/:categoryId/products/:productId", {
+      templateUrl: "partials/product-details.html",
+      controller: "ProductDetailsCtrl"
     })
 }])

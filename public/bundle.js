@@ -32661,32 +32661,32 @@ function ngViewFillContentFactory($compile, $controller, $route) {
 
 })(window, window.angular);
 
-var productApp = angular.module('productApp', [
-  'ngRoute',
+var productApp = angular.module("productApp", [
+  "ngRoute",
   "controllers.productList",
   "controllers.productDetails",
   "controllers.categories",
   "directives",
-  "productServices"
+  "services"
 ]);
 
-productApp.config(['$routeProvider', function ($routeProvider) {
+productApp.config(["$routeProvider", function ($routeProvider) {
   $routeProvider
-    .when('/', {
-      templateUrl: 'partials/product-list.html',
-      controller: 'ProductListCtrl'
+    .when("/", {
+      templateUrl: "partials/product-list.html",
+      controller: "ProductListCtrl"
     })
-    .when('/categories/:categoryId', {
-      templateUrl: 'partials/product-list.html',
-      controller: 'ProductListCtrl'
+    .when("/categories/:categoryId", {
+      templateUrl: "partials/product-list.html",
+      controller: "ProductListCtrl"
     })
-    .when('/categories/:categoryId/products/:productId', {
-      templateUrl: 'partials/product-details.html',
-      controller: 'ProductDetailsCtrl'
+    .when("/categories/:categoryId/products/:productId", {
+      templateUrl: "partials/product-details.html",
+      controller: "ProductDetailsCtrl"
     })
 }])
-angular.module('controllers.categories', [])
-.controller('CategoryCtrl', ['$scope', 'Product', function ($scope, Product) {
+angular.module("controllers.categories", [])
+.controller("CategoryCtrl", ["$scope", "Product", function ($scope, Product) {
   $scope.categories = [];
 
   Product.query({}, function (categories) {
@@ -32694,8 +32694,8 @@ angular.module('controllers.categories', [])
   });
 }]);
 
-angular.module('controllers.productDetails', [])
-.controller('ProductDetailsCtrl', ['$scope', "$routeParams", 'Product', function ($scope, $routeParams, Product) {
+angular.module("controllers.productDetails", [])
+.controller("ProductDetailsCtrl", ["$scope", "$routeParams", "Product", function ($scope, $routeParams, Product) {
   $scope.product = {};
 
   Product.query({category: $routeParams.categoryId, product: $routeParams.productId}, function (product) {
@@ -32703,38 +32703,43 @@ angular.module('controllers.productDetails', [])
   });
 }]);
 
-angular.module('controllers.productList', [])
-.controller('ProductListCtrl', ['$scope', "$routeParams", 'Product', function ($scope, $routeParams, Product) {
+angular.module("controllers.productList", [])
+.controller("ProductListCtrl", ["$scope", "$routeParams", "Product", function ($scope, $routeParams, Product) {
   $scope.products = [];
   $scope.categoryId = $routeParams.categoryId;
 
   Product.query({category: $routeParams.categoryId}, function (products) {
     $scope.products = products.Data;
+    console.log(products)
   });
 }]);
-var directives = angular.module('directives', []);
+//mapping of directives to html templates
 
-directives.directive('productList', function() {
+var directives = angular.module("directives", []);
+
+directives.directive("productList", function() {
   return {
     templateUrl: "partials/product-list.html"
   }
 });
 
-directives.directive('productDetails', function() {
+directives.directive("productDetails", function() {
   return {
     templateUrl: "partials/product-details.html"
   }
 });
 
-directives.directive('categories', function() {
+directives.directive("categories", function() {
   return {
     templateUrl: "partials/category-list.html"
   }
 });
-var productServices = angular.module('productServices', ['ngResource']);
+var services = angular.module("services", ["ngResource"]);
 
-productServices.factory('Product', ['$resource', function ($resource) {
-  return $resource('http://awsstaging.flashtalkingfeeds.com/temp/bas/test-api/get.php', {}, {
-    query: {method: 'GET', params: {}} 
+services.factory("Product", ["$resource", function ($resource) {
+  var apiUrl = "http://awsstaging.flashtalkingfeeds.com/temp/bas/test-api/get.php";
+  
+  return $resource(apiUrl, {}, {
+    query: { method: "GET", params: {} } 
   });
 }]);

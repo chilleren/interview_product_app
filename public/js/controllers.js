@@ -23,5 +23,6 @@ angular.module("controllers.productList", [])
 
   Product.query({category: $routeParams.categoryId}, function (products) {
     $scope.products = products.Data;
+    console.log(products)
   });
 }]);

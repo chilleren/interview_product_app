@@ -1,13 +1,13 @@
 <div ng-controller="ProductListCtrl" ng-model="productList">
-  <div ng-repeat="product in products">
+  <div ng-repeat="product in products" class="product-module">
     <div>
       <a href="#/categories/{{categoryId}}/products/{{product.id}}">
         <img ng-src={{product.image}} class="thumbnail">
       </a>
     </div>
-    <div>
+    <div class="product-title">
       <a href="#/categories/{{categoryId}}/products/{{product.id}}">{{product.title}}</a>
     </div>
-    <div>Price: {{product.price}}</div>
+    <div>${{product.price}}</div>
   </div>
 </div>
