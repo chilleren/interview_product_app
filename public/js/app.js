@@ -9,10 +9,6 @@ var productApp = angular.module("productApp", [
 
 productApp.config(["$routeProvider", function ($routeProvider) {
   $routeProvider
-    .when("/", {
-      templateUrl: "partials/product-list.html",
-      controller: "ProductListCtrl"
-    })
     .when("/categories/:categoryId", {
       templateUrl: "partials/product-list.html",
       controller: "ProductListCtrl"
@@ -21,4 +17,5 @@ productApp.config(["$routeProvider", function ($routeProvider) {
       templateUrl: "partials/product-details.html",
       controller: "ProductDetailsCtrl"
     })
+    .otherwise({redirectTo: "/categories/jackets"})
 }])
